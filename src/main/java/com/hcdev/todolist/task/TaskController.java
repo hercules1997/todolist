@@ -26,12 +26,14 @@ public class TaskController {
     @Autowired
     private ITaskRepository taskRepository;
 
+    // Registrando nova tarefa
     @PostMapping("/")
     public ResponseEntity create(@RequestBody TaskModel taskModel, HttpServletRequest request) {
 
         var idUser = request.getAttribute("idUser");
         taskModel.setIdUser((UUID) idUser);
 
+        // Validação das datas das tarefas
         var currentDate = LocalDateTime.now();
         if (currentDate.isAfter(taskModel.getStartAt()) || currentDate.isAfter(taskModel.getEndAt())) {
             return ResponseEntity.status(HttpStatus.BAD_REQUEST)
@@ -45,6 +47,7 @@ public class TaskController {
         return ResponseEntity.status(HttpStatus.OK).body(task);
     }
 
+    // Listar todas as tarefas do usuário
     @GetMapping("/")
     public List<TaskModel> list(HttpServletRequest request) {
         var idUser = request.getAttribute("idUser");

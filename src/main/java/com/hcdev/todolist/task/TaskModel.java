@@ -11,8 +11,9 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
 import lombok.Data;
 
+// Modelo da tabela de tarefas
 @Data
-@Entity(name = "tb_tasks")
+@Entity(name = "tb_tasks") // nome para a tabela
 public class TaskModel {
 
     @Id
@@ -26,16 +27,17 @@ public class TaskModel {
     private LocalDateTime endAt;
     private String Priority;
 
-    private UUID idUser;
-
-    @CreationTimestamp
-    private LocalDateTime createdAt;
-
+    // Tratamento de erro de limite de caracteres
     public void setTitle(String title) throws Exception {
-        if(title.length() > 50) {
+        if (title.length() > 50) {
             throw new Exception("O campo title deve conter no máximo 50 caracteres");
         }
         this.title = title;
     }
+
+    private UUID idUser;
+
+    @CreationTimestamp
+    private LocalDateTime createdAt;
 
 }

@@ -5,7 +5,7 @@
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>3.0.11</version>
+		<version>3.1.4</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.hcdev</groupId>
@@ -34,6 +34,7 @@
 			<scope>test</scope>
 		</dependency>
 
+		<!-- Dependencia para codificação de password -->
 	    <dependency>
 			<groupId>at.favre.lib</groupId>
 			<artifactId>bcrypt</artifactId>
@@ -52,13 +53,14 @@
 			<optional>true</optional>
 		</dependency>
 
+		<!-- Dependencia para persistencia de dados -->
 		<dependency>
 			<groupId>com.h2database</groupId>
 			<artifactId>h2</artifactId>
 			<scope>runtime</scope>
 		</dependency>
 	
-
+		<!-- Dependencia para criação de construtores e métodos -->
 	    <dependency>
 			<groupId>org.projectlombok</groupId>
 			<artifactId>lombok</artifactId>

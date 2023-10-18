@@ -38,13 +38,12 @@ public class FilterTaskAuth extends OncePerRequestFilter {
 
             var authSring = new String(authDecoded);
 
-            // Isso deve mostrar um array com o usuário e senha Ex: [username, password]
+            // Mostrar um array com o usuário e senha Ex: [username, password]
             String[] credentials = authSring.split(":");
             String username = credentials[0];
             String password = credentials[1];
 
             // Validar usuário
-
             var user = this.userRepository.findByUsername(username);
 
             if (user == null) {

@@ -5,6 +5,8 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.http.converter.HttpMessageNotReadableException;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 
+
+// Criação de erros personalizados
 @ControllerAdvice 
 public class ExceptionHandlerController {
 

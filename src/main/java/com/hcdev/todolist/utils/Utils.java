@@ -10,6 +10,8 @@ import org.springframework.beans.BeanWrapperImpl;
 
 public class Utils {
 
+
+    // Criação de um "map" para a ateração da tarefa sem que possa deixar os campos null
     public static void copyNonNullProperties(Object source, Object target) {
         BeanUtils.copyProperties(source, target, getNullPropertyNames(source));
     }
